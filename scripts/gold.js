@@ -1,19 +1,18 @@
 var URL = 'http://www.trumba.com/calendars/gold.rss?filterview=gold'; // the repo URL
 
-define(["./jfeed", "./util", "jquery"], function(jfeed, util) {
-	$.getFeed({
-		url: util.proxify(URL),
-		success: function(feed) {
-			console.log(feed.items)
-		}
-	});
+define(["./jfeed", "./util", "jquery", "hub"], function(jfeed, util, jQuery, hub) {
+	return {
+		items: null,
+		retrieveData: function() {
+			selfRef = this;
 
-    return {
-        // color: "blue",
-        // size: "large",
-        // addToCart: function() {
-        //     inventory.decrement(this);
-        //     cart.add(this);
-        // }
-    }
+			$.getFeed({
+				url: util.proxify(URL),
+				success: function(feed) {
+					selfRef.items = feed.items;
+				    hub.goldDataLoaded(selfRef);
+				}
+			});
+		}
+	}
 });
