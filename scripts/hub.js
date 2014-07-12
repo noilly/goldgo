@@ -1,7 +1,12 @@
-define(function() {
+define(['./events'], function(events)  {
 	return {
+		goldData: false,
 		goldDataLoaded: function(gold) {
-			console.log(gold.getItems());
+			goldData = true;
+			events.populate(gold);
+		},
+		weatherDataLoaded: function(weather) {
+			//console.log(weather.getItems());
 		}
 	}
 });
