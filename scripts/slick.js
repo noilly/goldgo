@@ -1,4 +1,3 @@
-define(["jquery"], function(jQuery) {
 /*
      _ _      _       _
  ___| (_) ___| | __  (_)___
@@ -1821,9 +1820,4 @@ define(["jquery"], function(jQuery) {
     };
 
 }));
-
-    return {
-
-    }
-});
 

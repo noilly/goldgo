@@ -1,0 +1,127 @@
+[
+  {
+    "name":"Apollo Road Ferry Terminal",
+    "lat":-27.44314448,
+    "lng":153.0638084
+  },
+  {
+    "name":"Sydney Street Ferry Terminal",
+    "lat":-27.47478598,
+    "lng":153.042188
+  },
+  {
+    "name":"Riverside Ferry Terminal",
+    "lat":-27.46708903,
+    "lng":153.03123
+  },
+  {
+    "name":"Eagle Street Pier Ferry Terminal",
+    "lat":-27.46879602,
+    "lng":153.030954
+  },
+  {
+    "name":"QUT Gardens Point Ferry Terminal",
+    "lat":-27.47640897,
+    "lng":153.025013
+  },
+  {
+    "name":"North Quay Ferry Terminal",
+    "lat":-27.47276,
+    "lng":153.02256
+  },
+  {
+    "name":"Regatta Ferry Terminal",
+    "lat":-27.48321301,
+    "lng":152.996814
+  },
+  {
+    "name":"Guyatt Park Ferry Terminal",
+    "lat":-27.492312,
+    "lng":153.001872
+  },
+  {
+    "name":"University of Queensland Ferry Terminal",
+    "lat":-27.49357899,
+    "lng":153.016776
+  },
+  {
+    "name":"West End Ferry Terminal",
+    "lat":-27.49024102,
+    "lng":153.003364
+  },
+  {
+    "name":"South Bank 1 Ferry Terminal",
+    "lat":-27.47583096,
+    "lng":153.022207
+  },
+  {
+    "name":"South Bank 2 Ferry Terminal",
+    "lat":-27.47612302,
+    "lng":153.02239
+  },
+  {
+    "name":"South Bank 3 Ferry Terminal",
+    "lat":-27.47979196,
+    "lng":153.025037
+  },
+  {
+    "name":"Maritime Museum Ferry Terminal",
+    "lat":-27.48187303,
+    "lng":153.0283
+  },
+  {
+    "name":"Thornton Street Ferry Terminal",
+    "lat":-27.47122298,
+    "lng":153.034033
+  },
+  {
+    "name":"Holman Street Ferry Terminal",
+    "lat":-27.46569096,
+    "lng":153.033569
+  },
+  {
+    "name":"Dockside Ferry Terminal",
+    "lat":-27.47247098,
+    "lng":153.039021
+  },
+  {
+    "name":"Mowbray Park Ferry Terminal",
+    "lat":-27.47729204,
+    "lng":153.043255
+  },
+  {
+    "name":"Hawthorne Ferry Terminal",
+    "lat":-27.46120003,
+    "lng":153.053416
+  },
+  {
+    "name":"Bulimba Ferry Terminal",
+    "lat":-27.45034903,
+    "lng":153.052244
+  },
+  {
+    "name":"Norman Park Ferry Terminal",
+    "lat":-27.47434797,
+    "lng":153.053649
+  },
+  {
+    "name":"Bretts Wharf Ferry Terminal",
+    "lat":-27.44012296,
+    "lng":153.062018
+  },
+  {
+    "name":"Teneriffe Ferry Terminal",
+    "lat":-27.45168897,
+    "lng":153.049248
+  },
+  {
+    "name":"New Farm Park Ferry Terminal",
+    "lat":-27.47172,
+    "lng":153.052482
+  },
+  {
+    "name":"Northshore Hamilton Ferry Terminal",
+    "lat":-27.44527,
+    "lng":153.08394
+  }
+]

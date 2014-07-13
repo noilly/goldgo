@@ -1,0 +1,38 @@
+
+<script>
+function getImage(query) {
+    var apistring = "http://api.trove.nla.gov.au/result?key=as1f5uj06ifi0e3j&zone=picture&q="
+    var formattedquery = query.replace(/ /g, "+");
+
+    var uri = apistring+ formattedquery;
+    var xmlHttp = null;
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", uri, false);
+    xmlHttp.send(null);
+    xmlDoc = loadXMLString(xmlHttp.responseText);
+    var images = {
+        lat: Number(xmlDoc.getElementsByTagName("thumbnail")[0].innerHTML)
+    };
+    console.log(images);
+    return images;
+}
+
+function loadXMLString(txt) {
+    if (window.DOMParser) {
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(txt, "text/xml");
+    } else // code for IE
+    {
+        xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async = false;
+        xmlDoc.loadXML(txt);
+    }
+    return xmlDoc;
+}
+var thumb = getImage("tai chi");
+document.getElementById("holder").innerHTML = "<img src=\"" + thumb + ">"; 
+
+</script>
+
+<div id="holder" width:600 height:600>
+</div>
