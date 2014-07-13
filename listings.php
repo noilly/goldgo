@@ -38,6 +38,7 @@
         data-anchor-target="#dragons + .gap"
         data-bottom-top="transform: translate3d(0px, -100%, 0px);"
         data-top-bottom="transform: translate3d(0px, 100%, 0px);"
+        id="main"
       ></div>
       <!--the +/-80% translation can be adjusted to control the speed difference of the image-->
     </div>
@@ -54,6 +55,7 @@
         data-anchor-target="#bacons + .gap"
         data-bottom-top="transform: translate3d(0px, -80%, 0px);"
         data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+        id="weather"
       ></div>
     </div>
 
@@ -73,27 +75,22 @@
     </div> -->
 
     <div id="skrollr-body">
+      <h1 class="text-left" style="margin-left:10px;"><a href="index.html">GoldGo</a></h1>
       <div class="header" id="dragons">
-          <div class="events"><!-- CAROUSEL CONTAINER START -->
-            <div class="event-text">
-              <h1>Tai Chi</h1>
-              <p>A small summary</p>
-            </div>
-            <div class="event-text">
-              <h1>Dancing</h1>
-            </div>
+          <div class="events" id="carousel"><!-- CAROUSEL CONTAINER START -->
+
           </div><!-- CAROUSEL CONTAINER END -->
       </div>
-      <div class="gap gap-50" style="background-image:url(assets/testbg.jpg);"></div>
+      <div class="gap gap-50"></div>
       <div class="content" id="bacons">
-        <p class="lead event-text">
+        <p class="lead event-text" id="description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec aliquam nisi. Quisque vitae eros et tellus feugiat mattis in vel urna. Pellentesque egestas metus ligula, fringilla interdum massa vehicula sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam a velit felis. Aliquam a bibendum dui. Etiam porta lacus a dolor pulvinar vulputate. Fusce elementum vulputate mi vitae tincidunt. Suspendisse pretium tincidunt odio vel semper. Duis porta libero orci, in porta nulla vestibulum eget. Nunc tempus lorem in lectus congue venenatis. Morbi porttitor mattis nisl, ac luctus dolor tincidunt mollis.
         </p>
         <div id="map-canvas"></div>
       </div>
       <div class="gap gap-50"></div>
       <div class="content" id="kittens">
-        <h1 class="event-text">Don't forget your umbrella!</h1>
+        <h1 class="event-text" id="weather-advice">Always check the weather before heading outside!</h1>
         <div class="content footer" id="done">
               <p id="loc">Hand crafted with love in sunny Brisbane, Queensland.</p>
               <p>Built by Tech Stars, <a href="mailto:poxon.d@gmail.com" class="footer">David</a> &amp; <a class="footer" href="mailto:kurt.m0@gmail.com">Kurt</a>.</p>
@@ -111,30 +108,53 @@
   <script type="text/javascript" src="scripts/maps.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-          var s = skrollr.init({
-            smoothScrolling: false,
-            mobileDeceleration: 0.004
-          });
+      var events;
+      $.get('maps/gold.php', function() {
+        // pass
+      }).done(function(data) {
+        events = $.parseJSON(data);
+        buildCarousel();
+        getEvent(0);
+      })
 
-          $('.eventbg').each(function() {
-            $(this).closest('body').css("background-image", "url('" + $(this).data('bg') + "')")
-          })
+      var buildCarousel = function() {
+        var html = ""
+        $.each(events, function() {
+          $('#carousel').slickAdd('<div class="event-text"><h1>' + this['title'] + '</h1><h2>' + this['date']+' · ' + this['location'] + '</h2><p>' + this['cost'] + ' - Booking: ' + this['booking'] + '</p></div>')
+        })
+      }
 
-          $('.weather').each(function() {
-            $(this).css("background-image", "url('" + $(this).data('bg') + "')")
-          })
+      var getEvent = function(index) {
+        console.log(events[index])
+        $('#main').css("background-image", "url('" + events[index]['imgEvent'] + "')");
+        $('#weather').css("background-image", "url('" + events[index]['imgWeather'] + "')");
+        $('#weather-advice').text(events[index]['advice']);
+        $('#description').text(events[index]['description']);
 
-          $('.events').slick({
-            dots: true,
-            arrows: false,
-            onAfterChange : function(slider, index) {
-              console.log(index);
-            }
-          });
+        setMarkersByName(events[index]['location'], "goldgo");
+        centreMap(events[index]['location']);
+      }
 
-          var changeEvent = function() {
+      var s = skrollr.init({
+        smoothScrolling: false,
+        mobileDeceleration: 0.004
+      });
 
-          };
+      $('.eventbg').each(function() {
+        $(this).closest('body').css("background-image", "url('" + $(this).data('bg') + "')")
+      })
+
+      $('.weather').each(function() {
+        $(this).css("background-image", "url('" + $(this).data('bg') + "')")
+      })
+
+      $('.events').slick({
+        dots: true,
+        arrows: false,
+        onAfterChange : function(slider, index) {
+          getEvent(index);
+        }
+      });
     }); 
   </script>
   </body>

@@ -195,4 +195,9 @@ var to = new google.maps.LatLng(toPlace.lng,toPlace.lat);
   });
 }
 
+var centreMap = function(place) {
+  var pos = getLocationXML(place);
+  map.setCenter(new google.maps.LatLng(pos.lat, pos.lng));
+}
+
 google.maps.event.addDomListener(window, 'load', initialize);
