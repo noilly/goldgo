@@ -92,7 +92,7 @@ map = new google.maps.Map(document.getElementById('map-canvas'),
 
 map.setOptions({styles: styles});
 setMarkersByName("QUT Gardens Point Brisbane", "goldgo");
-loadJSONfile(map,"./maps/toiletdata.json","toilet"); 
+loadJSONfile(map,"./maps/toilet.json","toilet"); 
 loadJSONfile(map,"./maps/ferry.json","ferry");   
 loadJSONfile(map,"./maps/bus.json","bus");   
 }
