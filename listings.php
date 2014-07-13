@@ -75,7 +75,6 @@
     </div> -->
 
     <div id="skrollr-body">
-      <h1 class="text-left" style="margin-left:10px;"><a href="index.html">GoldGo</a></h1>
       <div class="header" id="dragons">
           <div class="events" id="carousel"><!-- CAROUSEL CONTAINER START -->
 
@@ -92,7 +91,7 @@
       <div class="content" id="kittens">
         <h1 class="event-text" id="weather-advice">Always check the weather before heading outside!</h1>
         <div class="content footer" id="done">
-              <p id="loc">Hand crafted with love in sunny Brisbane, Queensland.</p>
+              <p id="loc"><a href="index.html">GoldGo.</a> Hand crafted with love in sunny Brisbane, Queensland.</p>
               <p>Built by Tech Stars, <a href="mailto:poxon.d@gmail.com" class="footer">David</a> &amp; <a class="footer" href="mailto:kurt.m0@gmail.com">Kurt</a>.</p>
       </div>
       </div>
