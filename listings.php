@@ -83,7 +83,7 @@
       <div class="gap gap-50"></div>
       <div class="content" id="bacons">
         <p class="lead event-text" id="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec aliquam nisi. Quisque vitae eros et tellus feugiat mattis in vel urna. Pellentesque egestas metus ligula, fringilla interdum massa vehicula sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam a velit felis. Aliquam a bibendum dui. Etiam porta lacus a dolor pulvinar vulputate. Fusce elementum vulputate mi vitae tincidunt. Suspendisse pretium tincidunt odio vel semper. Duis porta libero orci, in porta nulla vestibulum eget. Nunc tempus lorem in lectus congue venenatis. Morbi porttitor mattis nisl, ac luctus dolor tincidunt mollis.
+          Loading...
         </p>
         <div id="map-canvas"></div>
       </div>
@@ -114,6 +114,7 @@
         events = $.parseJSON(data);
         buildCarousel();
         getEvent(0);
+        setTimeout(function(){$(window).trigger('resize');console.log('hi')}, 6000);
       })
 
       var buildCarousel = function() {
@@ -124,7 +125,6 @@
       }
 
       var getEvent = function(index) {
-        console.log(events[index])
         $('#main').css("background-image", "url('" + events[index]['imgEvent'] + "')");
         $('#weather').css("background-image", "url('" + events[index]['imgWeather'] + "')");
         $('#weather-advice').text(events[index]['advice']);
